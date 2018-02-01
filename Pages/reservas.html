@@ -10,15 +10,33 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="config.js"></script>
+    <script src="reservas.js"></script>
+    <link rel="icon" href="./imagens/weatherbus.png">
+
+    <style>
+        .navbar-fixed-top {
+            position: fixed;
+            right: 0;
+            left: 0;
+            z-index: 1030;
+        }
+
+        .footer {
+            position: absolute;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a href="#" class="navbar-brand">Logo</a>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark navbar-default navbar-fixed-top">
+        <a href="main.html" class="navbar-brand">
+            <img style="width:50px" src="./imagens/weatherbus.png" alt="">
+        </a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="main.html" class="nav-link">Página Principal</a>
@@ -27,34 +45,334 @@
                 <a href="meteorologia.html" class="nav-link">Meteorologia</a>
             </li>
             <li class="nav-item">
-                <a href="horarios.html" class="nav-link">Horários</a>
-            </li>
-            <li class="nav-item">
                 <a href="reservas.html" class="nav-link active">Reservas</a>
             </li>
-            <!-- <li class="nav-item">
-                        <a href="#" class="nav-link">FAQ</a>
-                    </li> -->
+            <li class="nav-item">
+                <a href="minhasreservas.html" id="navMinhasReservas" class="nav-link">Minhas Reservas</a>
+            </li>
 
+            <!-- <li class="nav-item">
+                    <a href="#" class="nav-link">FAQ</a>
+                </li> -->
         </ul>
         <ul class="nav navbar-nav ml-auto">
+
             <div class="input-group">
-                <input type="text" class="form-control form-control-sm" id="utilizador" placeholder="Utilizador">
-                <input type="passsword" class="form-control form-control-sm" id="password" placeholder="Password">
-                <button class="btn btn-primary" type="submit" id="btnEntrar">Entrar</button>
-                <button class="btn btn-primary" id="btnRegistar">Registar</button>
+                <a href="#" id="btnSair" class="btn btn-warning">Sair</a>
+                <a id="btnEntrar" href="login.html" class="btn btn-warning">Entrar</a>
+                <a id="btnRegistar" href="registo.html" class="btn btn-warning ml-2">Registar</a>
             </div>
         </ul>
-
     </nav>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
+    <br>
+    <div class="py-5">
+        <div id="horarios" class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-dark mt-4">Reservas</h1>
+                    <p>
+                        Aqui poderás consultar os horários dos autocarros que estão disponíveis, tendo em conta que só estaram disponíveis autocarros
+                        para quando chove. Para efetuares uma reserva clica num dos horários e clica em confirmar.
+                    </p>
+                    <br>
+                    <div class="row">
+                        <div class="col-1 ml-2">
+                            <button class="btn btn-success"></button>
+                        </div>
+                        <div class="col">
+                            <p> Reserva disponível</p>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-1 ml-2">
+                            <button class="btn btn-warning"></button>
+                        </div>
+                        <div class="col">
+                            <p> Reserva indisponível</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <hr>
+            <div class="row text-dark">
+                <div class="p-4 col-lg-4">
+                    <div class="card card-outline-primary">
+                        <div class="card-block text-center p-4" style="background-color: #333; color:white;">
+                            <h4 id="primeiroDia"></h4>
+                        </div>
+                        <ul class="list-group" style="text-align: center;">
+                            <div id="primeiroDia6">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>08:30</a>
+                                </li>
+                            </div>
+
+                            <div id="primeiroDia9">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:30</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>10:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>11:00</a>
+                                </li>
+                            </div>
+
+                            <div id="primeiroDia15">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:30</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-4 col-lg-4">
+                    <div class="card card-outline-primary">
+                        <div class="card-block text-center p-4" style="background-color: #333; color:white;">
+                            <h4 id="segundoDia"></h4>
+                        </div>
+                        <ul class="list-group" style="text-align: center;">
+                            <div id="segundoDia6">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>08:30</a>
+                                </li>
+                            </div>
+
+                            <div id="segundoDia9">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:30</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>10:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>11:00</a>
+                                </li>
+                            </div>
+
+                            <div id="segundoDia15">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:30</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-4 col-lg-4">
+                    <div class="card card-outline-primary">
+                        <div class="card-block text-center p-4" style="background-color: #333; color:white;">
+                            <h4 id="terceiroDia"></h4>
+                        </div>
+                        <ul class="list-group" style="text-align: center;">
+                            <div id="terceiroDia6">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>08:30</a>
+                                </li>
+                            </div>
+
+                            <div id="terceiroDia9">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:30</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>10:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>11:00</a>
+                                </li>
+                            </div>
+
+                            <div id="terceiroDia15">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:30</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="p-4 col-lg-4">
+                    <div class="card card-outline-primary">
+                        <div class="card-block text-center p-4" style="background-color: #333; color:white;">
+                            <h4 id="quartoDia"></h4>
+                        </div>
+                        <ul class="list-group" style="text-align: center;">
+                            <div id="quartoDia6">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>08:30</a>
+                                </li>
+                            </div>
+
+                            <div id="quartoDia9">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:30</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>10:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>11:00</a>
+                                </li>
+                            </div>
+
+                            <div id="quartoDia15">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:30</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-4 col-lg-4">
+                    <div class="card card-outline-primary">
+                        <div class="card-block text-center p-4" style="background-color: #333; color:white;">
+                            <h4 id="quintoDia"></h4>
+                        </div>
+                        <ul class="list-group" style="text-align: center;">
+                            <div id="quintoDia6">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>08:30</a>
+                                </li>
+                            </div>
+
+                            <div id="quintoDia9">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>09:30</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>10:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>11:00</a>
+                                </li>
+                            </div>
+
+                            <div id="quintoDia15">
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:00</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-bus text-primary mr-1"></i>
+                                    <a>14:30</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------------- FOOTER------------------------------------------------------- -->
+    <div class="footer text-white" style="background-color:#4c88c4">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 mt-5">
+                    <h4 class="mb-4">Contactos</h4>
+                    <i class="fa mr-2 text-secondary fa-envelope-o"></i>
+                    <a>
+                    </a>
+                    <a href="mailto:9160132@esmad.ipp.pt" class="text-white">9160132@esmad.ipp.pt</a>
+                    <br>
+                    <i class="fa mr-2 text-secondary fa-envelope-o"></i>
+                    <a>
+                    </a>
+                    <a href="mailto:9160083@esmad.ipp.pt" class="text-white">9160083@esmad.ipp.pt</a>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-4 mt-5">
+                    <h4 class="mb-4">Escola</h4>
+                    <i class="fa mr-2 text-secondary fa-graduation-cap"></i>
+                    <a>
+                    </a>
+                    <a href="https://www.esmad.ipp.pt/" target="_blank" class="text-white">ESMAD</a>
+                    <br>
+                </div>
+                <div class="col-4 mt-5">
+                    <h4 class="mb-4">Localização</h4>
+                    <i class="fa mr-2 text-secondary fa-location-arrow"></i>
+                    <a>
+                    </a>
+                    <p>Escola Superior de Media Artes e Design Rua D. Sancho I, n.º 981 4480-876 Vila do Conde Portugal</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

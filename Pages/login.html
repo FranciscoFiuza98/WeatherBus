@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>WeatherBus - Login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="login.js"></script>
+    <link rel="icon" href="./imagens/weatherbus.png">
+
+    <style>
+    </style>
+</head>
+
+<body style="background-color: #93b8e9">
+    <div class="containter mt-5">
+        <div class="jumbotron bg-primary mx-auto" style="width:30%; margin-top:5%">
+            <img src="./imagens/weatherbus.png" style="margin-left:auto;
+                margin-right:auto;
+                display:block; width:40%" alt="">
+            <h4 class="text-center text-white mt-3">Login</h4>
+            <form id="formLogin" class="was-validated" action="#">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-1 mt-4">
+                        <i class="fa fa-sign-in fa-2x" style="margin-top: 3px; color:white;"></i>
+                        <i class="fa fa-unlock fa-2x" style="margin-top: 30px; color:white;"></i>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control ml-2 mt-4" id="inputUtilizador" placeholder="Numero / Email" required>
+                            <input type="password" class="form-control ml-2 mt-4" id="inputPassword" placeholder="Password" required>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-warning ml-2 mt-4 btn-block" id="btnEntrar">Entrar</button>
+                            <button class="btn btn-warning ml-2 btn-block" id="btnMain">
+                                Entrar como convidado
+                            </button>
+                            <a href="registo.html" style="color:gold; margin-left:10%">Ainda não tens conta?</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -10,14 +10,47 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="config.js"></script>
+    <script src="main.js"></script>
+    <link rel="icon" href="./imagens/weatherbus.png">
+    <style>
+        .navbar-fixed-top {
+            position: fixed;
+            right: 0;
+            left: 0;
+            z-index: 1030;
+        }
+
+        .footer {
+            position: absolute;
+            width: 100%;
+        }
+
+        .jumbotron {
+            background-image: url("https://jpn.up.pt/wp-content/uploads/2017/05/25-05-2017_fachada_Campus2_IPP-Copy-768x485.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+        }
+
+        .card {
+            height: 500px;
+            width: 350px;
+        }
+    </style>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a href="#" class="navbar-brand">Logo</a>
+    <!-- -------------------------------------------------------- NavBar ------------------------------------------------------- -->
+    <nav class="navbar navbar-expand-sm navbar-default navbar-fixed-top bg-primary navbar-dark">
+        <a href="main.html" class="navbar-brand">
+            <img style="width:50px" src="./imagens/weatherbus.png" alt="">
+        </a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="main.html" class="nav-link active">Página Principal</a>
@@ -26,34 +59,146 @@
                 <a href="meteorologia.html" class="nav-link">Meteorologia</a>
             </li>
             <li class="nav-item">
-                <a href="horarios.html" class="nav-link">Horários</a>
-            </li>
-            <li class="nav-item">
                 <a href="reservas.html" class="nav-link">Reservas</a>
             </li>
-            <!-- <li class="nav-item">
-                <a href="#" class="nav-link">FAQ</a>
-            </li> -->
+            <li class="nav-item">
+                <a id="minhasReservas" href="#" class="nav-link">Minhas Reservas</a>
+            </li>
 
         </ul>
         <ul class="nav navbar-nav ml-auto">
+
             <div class="input-group">
-                <input type="text" class="form-control form-control-sm" id="utilizador" placeholder="Utilizador">
-                <input type="passsword" class="form-control form-control-sm" id="password" placeholder="Password">
-                <button class="btn btn-primary" type="submit" id="btnEntrar">Entrar</button>
-                <button class="btn btn-primary" id="btnRegistar">Registar</button>
+                <a href="#" id="btnSair" class="btn btn-warning">Sair</a>
+                <a href="login.html" id="btnEntrar" class="btn btn-warning">Entrar</a>
+                <a href="registo.html" id="btnRegistar" class="btn btn-warning ml-1">Registar</a>
             </div>
         </ul>
-
     </nav>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
+    <!-- -------------------------------------------------------- Main ------------------------------------------------------- -->
+    <div class="jumbotron text-center">
+        <div class="container mt-5">
+            <i class="fa fa-bus fa-4x"></i>
+            <h2 style="margin-top: 30px;">
+                <kbd>Precisas de boleia?</kbd>
+                <br>
+                <kbd>Está a chover tanto que não consegues chegar à escola?</kbd>
+            </h2>
+            <h1 style="margin-top: 15px; font-size: 46px;">
+                <kbd>WeatherBus é para ti!</kbd>
+            </h1>
+        </div>
+    </div>
+    <div class="text-center bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="./imagens/weatherbus.png" alt="">
+                    <br>
+                    <br>
+                    <h1 class="pb-3">WeatherBus?</h1>
+                    <div class="col-md-3 mx-auto">
+                        <!--<img class="img-fluid d-block mx-auto mb-5" src="plugin.png">-->
+                    </div>
+                    <p class="lead">
+                        A WeatherBus é um projeto no âmbito da unidade curricular Programação Web 1, que tem como objetivo, o transporte de alunos
+                        na viajem de metro á faculdade nos dias de chuva, conseguindo assim, combater as adversidades temporais.
+                        Para poder reservar o seu lugar no autocarro da ESMAD, precisa de estar registado no nosso website
+                        WeatherBus.
+
+                    </p>
+                </div>
+            </div>
+            <hr class="cartas">
+            <div class="row mt-5 ml-5">
+                <div class="col-6">
+                    <div class="card p-4 bg-info">
+                        <img class="card-img-top" src=".\imagens\exemplo.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Meteoreologia</h4>
+                            <p class="card-text">Nesta secção poderás consultar a meteorologia para os próximos dias.</p>
+                            <a href="meteorologia.html" class="btn btn-primary">Ver Meteorologia</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card p-4 ml-5 bg-info">
+                        <img class="card-img-top" src=".\imagens\reservas.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Reservas</h4>
+                            <p class="card-text">Na secção de reservas poderás reservar o teu lugar no autocarro da Esmad caso chova no dia a
+                                seguir!
+                            </p>
+                            <a href="reservas.html" class="btn btn-primary">Reservar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 ml-5">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div id="cardMinhasReservas" class="card mt-5 p-4 ml-3 bg-info">
+                        <img class="card-img-top" src=".\imagens\schedule.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Minhas Reservas</h4>
+                            <p class="card-text">Aqui poderás consultar todas as reservas que já efetuaste.</p>
+                            <a href="#" id="minhasReservasMain" class="btn btn-primary">Consultar Reservas</a>
+                        </div>
+                    </div>
+                    <div id="cardRegistar" class="card mt-5 p-4 ml-3 bg-info">
+                        <img class="card-img-top" src=".\imagens\registar.png" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-title">Registar</h4>
+                            <p class="card-text">Nesta secção poderás registar-te para poderes fazer já a tua reserva.</p>
+                            <a href="registo.html" class="btn btn-primary">Registar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <!-- -------------------------------------------------------- FOOTER------------------------------------------------------- -->
+        <div class="footer text-white" style="background-color:#4c88c4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 mt-5">
+                        <h2 class="mb-4">Contactos</h2>
+                        <i class="fa mr-2 text-secondary fa-envelope-o"></i>
+                        <a href="mailto:9160132@esmad.ipp.pt" class="text-white">9160132@esmad.ipp.pt</a>
+                        <br>
+                        <i class="fa mr-2 text-secondary fa-envelope-o"></i>
+                        <a href="mailto:9160083@esmad.ipp.pt" class="text-white">9160083@esmad.ipp.pt</a>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-4 mt-5">
+                        <h2 class="mb-4">Escola</h2>
+                        <i class="fa mr-2 text-secondary fa-graduation-cap"></i>
+                        <a href="https://www.esmad.ipp.pt/" target="_blank" class="text-white">ESMAD</a>
+                        <br>
+                    </div>
+                    <div class="col-4 mt-5">
+                        <h2 class="mb-4">Localização</h2>
+                        <i class="fa mr-2 text-secondary fa-location-arrow"></i>
+                        <p>Escola Superior de Media Artes e Design Rua D. Sancho I, n.º 981 4480-876 Vila do Conde Portugal</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>
